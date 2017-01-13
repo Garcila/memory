@@ -1,27 +1,46 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang='en'>
   <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
     <title>Memory</title>
     <link
-      rel="stylesheet"
-      type="text/css"
-      href="https://cdnjs.cloudflare.com/ajax/libs/normalize/3.0.3/normalize.css" />
-    <link href="css/memory.css" rel="stylesheet">
+      rel='stylesheet'
+      type='text/css'
+      href='https://cdnjs.cloudflare.com/ajax/libs/normalize/3.0.3/normalize.css' />
+    <link href='css/memory.css' rel='stylesheet'>
+    <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
   </head>
   <body>
-    <nav>
-      <button type="button" name="button" id='arrayNumbers'>numbers</button>
-      <button type="button" name="button" id='arrayColors'>colors</button>
-      <button type="button" name="button" id='arrayPrrrr'>prrrr</button>
-    </nav>
-    <div class="container">
-
+    <div class='page'>
+      <div class='title'>
+        <img class='big-pair'src='./images/Pear.svg' alt=''/>
+        <div class='name'>pair</div>
+        <div class='slogan'>the matching game</div>
+      </div>
+      <nav class='flex'>
+        <nav class='nav'>
+          <button type='button' class='btn num' name='button' id='arrayNumbers'>Numbers</button>
+          <button type='button' class='btn col' name='button' id='arrayColors'>Colors</button>
+          <button type='button' class='btn let' name='button' id='arrayLetters'>Letters</button>
+        </nav>
+        <div class='container'>
+          <!-- board will go here -->
+        </div>
+      </nav>
+      <div class='score'>
+        <div>
+          <img class='small-pair'src='./images/Pear.svg' alt=''/>
+          <div class='tries t'></div>
+          <div class='tries s'></div>
+        </div>
+        <div class='total-pairs'>
+          <img class='small-pair'src='./images/Pear.svg' alt=''/>
+        </div>
+      </div>
     </div>
-
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-    <script src="js/memory.js"></script>
+    <script src='https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js'></script>
+    <script src='js/memory.js'></script>
   </body>
 </html>

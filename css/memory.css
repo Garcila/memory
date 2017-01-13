@@ -1,38 +1,119 @@
 body {
-  background-color: #e0e0e0;
+  background-color: #b0b0b0;
+  font-family: 'Lato', sans-serif;
+  font-size: 15px;
+}
+
+.page {
   display: flex;
-  justify-content: center;
+}
+
+/*TITLE_____________________________*/
+.title {
+  flex: 2;
+  display: flex;
+  flex-direction: column;
+  align-self: center;
+  justify-content: flex-start;
+  align-content: flex-start;
+  /*border: 1px solid black*/
+}
+
+.big-pair {
+  transform: scale(0.8);
+}
+
+.name {
+  margin-top: -30px;
+  text-align: center;
+  font-size: 5em;
+  font-weight: bolder;
+  color: #d6d4d4;
+  text-transform: uppercase;
+}
+
+.slogan {
+  text-align: center;
+  font-size: 1em;
+  color: #d6d4d4;
+  text-transform: uppercase;
+}
+
+/*GAME_____________________________*/
+.flex {
+  /*border: 1px solid blue;*/
+  flex: 4;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.nav {
+  margin-top: 20px;
+}
+
+button {
+  flex-direction: column;
+  align-items: center;
+  color: #abaaaa;
+  height: 180px;
+  width: 115px;
+  margin-right: 5px;
+  margin-bottom: -120px;
+  background-color: #f5f5f5;
+  border: 1px solid #ededed;
+  border-radius: 5%;
+  text-transform: uppercase;
+}
+
+.btn {
+  padding-top: 15px;
+  border-top-width: 30px;
+}
+
+.btn:hover {
+  background-color: #e9e9e9;
+  border-color: #f0efef;
 }
 
 .container {
   display: flex;
-  flex-basis: auto;
   max-width: 500px;
   justify-content: center;
   flex-wrap: wrap;
-  margin-top: 60px;
+  margin-top: 20px;
+  background-color: #6bb1b8;
+  padding: 30px 10px;
+  border-radius: 50%;
+  border: 15px solid rgba(255, 255, 255, 0.06);
+  box-shadow: 1px 20px 55px -10px rgb(150, 147, 147);
+  z-index: 10;
 }
 
 .cell {
     display: flex;
     justify-content: center;
-    align-content: center;
-    margin: 2px;
+    align-items: center;
+    margin: -5px;
+    border: 10px solid #e9e9e9;
     width: 100px;
     height: 100px;
-    /*padding: 60px;*/
-    background-color:#FF4500;
-    font-size: 6em;
-    color: #81cbae;
+    background-color:#cfcfcf;
+    font-size: 5em;
+    font-weight: bolder;
+    color: #ffffff;
     max-width:100%;
     max-height:100%;
-    transition: transform 0.5s ease;
+    transition: border-radius 0.5s, transform 0.5s ease;
+    border-radius: 50%;
 }
 
 .cell:hover {
-  /*background-color: #81cbae;*/
   border-radius: 5%;
-  transform: scale(.95);
+  transform: scale(0.95);
+  transition: border-radius 0.5s, transform 0.5s cubic-bezier(0.43,-0.36, 0.6, 1.37);
+  z-index: 10;
+
 }
 
 .opacity {
@@ -48,3 +129,34 @@ body {
   opacity: 0;
   font-size: 0;
 }
+
+/*SCORE_____________________________*/
+.score {
+  flex: 1;
+  /*border: 1px solid yellow;*/
+  display: flex;
+  flex-direction: column;
+  align-self: stretch;
+  justify-content: space-around;
+}
+
+.tries {
+  text-align: center;
+  font-size: 1em;
+  color: #e3e3e3;
+  text-transform: uppercase;
+}
+
+.t {
+  font-weight: bolder;
+  font-size: 2.5em;
+}
+
+.small-pair {
+  transform: scale(0.4);
+}
+
+/*
+add media queries to change the size of the board,
+can be done in container max width
+*/
