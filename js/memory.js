@@ -58,6 +58,7 @@ $(document).ready(function() {
   //modify div when cells are matched
   function ifMatched(element) {
     afterComparing(element);
+    sound('two');
     $(element).addClass('matched')
               .click(false);
   }
@@ -70,10 +71,28 @@ $(document).ready(function() {
     var one = '<div class="tries s"> try </div>';
     var more = '<div class="tries s"> tries </div>';
     var numT = '<div class="tries t">' + numberOfTries + '</div>';
-    console.log(numberOfTries);
     numberOfTries > 1 ? $s.html(more) : $s.html(one) ;
     $t.html(numT);
   }
+
+  //determine game is over
+  function isItOver() {
+    $(".container div").each(function (index, element) {
+      // console.log('zapato');
+      // console.log($(element));
+      if ($(element).hasClass(".matched")) {
+          console.log('game won!');
+      }
+    });
+    // if ($('.container > .matched').length > 1) {
+    //   console.log('game won!');
+    // }
+  };
+
+  console.log(userSelection.length);
+  // if ($("#gallery > div.show").length > 0)
+  // if($('#popup').children('p.filled-text').length > 0) {
+  // console.log("Found");
 
   //compareCells
   function compareCells(a, b) {
@@ -97,6 +116,7 @@ $(document).ready(function() {
       }, 100);
     }
     tries();
+    isItOver();
   };
 
   //Listeners ____________________________________________
@@ -113,11 +133,18 @@ $(document).ready(function() {
     init();
   });
 
+  //play sound when clicking title
+  function sound(bubb) {
+    var audio = new Audio('./sounds/bubble_' + bubb + '.mp3');
+    audio.play();
+  }
+
   //assign colours to cells
   $container.on('click', '.cell', function(event) {
     var $cell = $(this);
     var color = $cell.data('colour');
     var $selectedCell = $('.cell.selected').first();
+    sound('one');
     if (userSelection === arrayColors) {
       $cell.css('background-color', color).addClass('selected'); //to use colours
     } else {
