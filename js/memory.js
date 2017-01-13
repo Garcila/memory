@@ -19,7 +19,8 @@ $(document).ready(function() {
     'url(images/5.jpg)','url(images/6.jpg)','url(images/7.jpg)',
     'url(images/8.jpg)'];
   var userSelection = (shuffle(arrayColors));
-  var numberOfTries = 0;
+  var numberOfTries;
+  var $onOff = $('.onOff');
 
   init();
 
@@ -34,8 +35,11 @@ $(document).ready(function() {
   //Start the game
   function init() {
     var numberOfCells = userSelection.length;
+
     shuffle(userSelection);
     buildBoard(($container), numberOfCells);
+    numberOfTries = -1;
+    tries();
   }
 
   //Build board
@@ -119,6 +123,12 @@ $(document).ready(function() {
     isItOver();
   };
 
+  //play sound when clicking title
+  function sound(bubb) {
+    var audio = new Audio('./sounds/bubble_' + bubb + '.mp3');
+    $onOff.hasClass('.soundOff') ? '' : audio.play();
+  }
+
   //Listeners ____________________________________________
 
   //choose type of tyle on selection
@@ -133,11 +143,15 @@ $(document).ready(function() {
     init();
   });
 
-  //play sound when clicking title
-  function sound(bubb) {
-    var audio = new Audio('./sounds/bubble_' + bubb + '.mp3');
-    audio.play();
-  }
+  //add class to toggle sound on/off
+  // function onOff() {
+    $('.onOff').on('click', function() {
+      var iconOff = '<img src="./images/vol_off.svg" alt="">sound';
+      var iconOn = '<img src="./images/vol_on.svg" alt="">sound';
+      $onOff.toggleClass('.soundOff');
+      $onOff.hasClass('.soundOff') ? $onOff.html(iconOff) : $onOff.html(iconOn);
+    });
+  // }
 
   //assign colours to cells
   $container.on('click', '.cell', function(event) {

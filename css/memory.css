@@ -52,7 +52,7 @@ body {
   margin-top: 20px;
 }
 
-button {
+.btn {
   flex-direction: column;
   align-items: center;
   color: #abaaaa;
@@ -155,6 +155,28 @@ button {
 .small-pair {
   transform: scale(0.4);
 }
+
+.icon {
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+}
+
+.onOff {
+  background: none;
+  border: none;
+  color: #b0b0b0;
+  outline: 0;
+}
+
+.onOff:hover {
+  transform: scale(1.2);
+}
+
+.onOff:active {
+  transform: scale(0.9);
+}
+
 
 /*
 add media queries to change the size of the board,
